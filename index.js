@@ -6,20 +6,8 @@ connectToMongo();
 const port = 5000 || process.env.PORT;
 var cors = require("cors");
 
-const allowedOrigins = [
-  "https://dineshcms.vercel.app",
-  "https://cms-frontend-mu-seven.vercel.app/",
-  "https://cms-frontend-oi0pyyhje-dineshbabu290904s-projects.vercel.app"
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  }
+  origin: "*"
 }));
 app.use(express.json()); //to convert request data to json
 
